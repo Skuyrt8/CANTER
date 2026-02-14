@@ -391,3 +391,50 @@ h2::after {
     justify-content: space-between;
     align-items: center;
 }
+
+
+/* --- GRID GALLERY PARA CANTERAS --- */
+
+.grid__gallery {
+    padding: 40px 0; /* Espacio para que respire entre secciones */
+    background-color: #f9f9f9; /* Opcional: fondo ligero para resaltar */
+}
+
+.row {
+    display: flex;
+    padding: 0 10px;
+    flex-wrap: wrap;
+    max-width: 1200px; /* Alineado con tu contenedor general */
+    margin: 0 auto;
+}
+
+.column {
+    flex: 25%;
+    padding: 0 5px;
+}
+
+.column img {
+    width: 100%;
+    margin-top: 10px;
+    vertical-align: middle;
+    border-radius: 4px; /* Un toque suave para los bordes */
+    transition: transform 0.3s ease; /* Efecto hover opcional */
+}
+
+.column img:hover {
+    transform: scale(1.02); /* Se agranda un poco al pasar el ratón */
+}
+
+/* Responsive: 2 columnas en tablets */
+@media (max-width: 800px) {
+    .column {
+        flex: 50%;
+    }
+}
+
+/* Responsive: 1 columna en móviles */
+@media (max-width: 600px) {
+    .column {
+        flex: 100%;
+    }
+}
