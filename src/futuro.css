@@ -1,0 +1,69 @@
+/* 1. RESET Y ESTILOS BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primario: #222222; /* Gris piedra */
+    --secundario: #bd7b31; /* Tono arena/tierra */
+    --fondo-claro: #f9f9f9;
+    --blanco: #ffffff;
+    --texto: #333333;
+    --transicion: all 0.3s ease;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--texto);
+    background-color: var(--blanco);
+}
+
+.expansion {
+    padding: 60px 0;
+    background-color: #333; /* Un gris oscuro o color piedra */
+    color: #fff;
+}
+
+.expansion-grid {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.expansion-text {
+    flex: 2;
+}
+
+.expansion-text h2 {
+    color: #c5a47e; /* Un dorado suave o color arena */
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.expansion-stats {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.stat-item {
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 5px;
+    border-left: 4px solid #c5a47e;
+}
+
+.stat-item h3 {
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    .expansion-grid {
+        flex-direction: column;
+    }
+}

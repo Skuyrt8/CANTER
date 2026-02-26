@@ -1,0 +1,566 @@
+/* 1. RESET Y ESTILOS BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primario: #222222; /* Gris piedra */
+    --secundario: #bd7b31; /* Tono arena/tierra */
+    --fondo-claro: #f9f9f9;
+    --blanco: #ffffff;
+    --texto: #333333;
+    --transicion: all 0.3s ease;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--texto);
+    background-color: var(--blanco);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* 2. HEADER Y NAVEGACIÓN */
+.main-header {
+    background: rgba(0,0,0,0.8);
+    padding: 30px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    min-height: 100px;
+    transition: all 0.4s ease;
+}
+
+.main-header.scrolled {
+    background: rgba(2, 2, 2, 0.7);
+    padding: 20px 0;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 60px;
+    transition: var(--transicion);
+}
+
+/* Navegación y Submenús */
+.main-nav ul {
+    display: flex;
+    list-style: none;
+}
+
+.main-nav ul li {
+    position: relative;
+}
+
+.main-nav ul li a {
+    text-decoration: none;
+    color: var(--blanco);
+    font-weight: 600;
+    padding: 10px 15px;
+    margin-left: 15px;
+    transition: var(--transicion);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.main-nav ul li a:hover {
+    color: var(--secundario);
+}
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(0,0,0,0.9);
+    min-width: 200px;
+    visibility: hidden;
+    opacity: 0;
+    transition: var(--transicion);
+    list-style: none;
+    padding: 10px 0;
+    border-top: 2px solid var(--secundario);
+}
+
+.main-nav ul li:hover > .submenu {
+    visibility: visible;
+    opacity: 1;
+}
+
+.submenu li a {
+    margin: 0;
+    display: block;
+    padding: 10px 20px;
+    text-transform: none;
+}
+
+/* 3. HERO (PORTADA) */
+.hero {
+    height: 85vh; 
+    min-height: 500px;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/banner1.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 12px 30px;
+    background: var(--secundario);
+    color: var(--blanco);
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: var(--transicion);
+}
+
+.btn-primary:hover {
+    background: var(--primario);
+}
+
+/* 4. SECCIONES GENERALES */
+section {
+    padding: 60px 0;
+}
+
+h2 {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--primario);
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--secundario);
+    margin: 10px auto;
+}
+
+/* 5. SECCIÓN ACABADOS (PÁGINA LISTADO) */
+.acabados-page {
+    background-color: #111;
+    padding-top: 120px;
+}
+
+.category-title {
+    color: var(--secundario);
+    font-size: 3rem;
+    text-align: center;
+    margin: 0px 0 100px 0;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    position: relative; 
+}
+
+.category-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--secundario);
+    margin: 15px auto 0;
+}
+
+.grid-acabados {
+    display: flex;
+    flex-direction: column;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.card__item {
+    position: relative;
+    width: 100%;
+    height: 22vh;
+    min-height: 120px;
+    overflow: hidden;
+    background-color: #222;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 5px;
+}
+
+.card__link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.7);
+    transition: background-color 0.5s ease;
+}
+
+.card__item:hover .card__link {
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.high__hov {
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    transition: all 0.4s ease;
+}
+
+.card__item:hover .high__hov {
+    transform: scale(1.05);
+    text-shadow: 0 0 15px rgba(0,0,0,0.8);
+}
+
+/* 6. FICHA DE PRODUCTO (HERO E INFO) */
+.product-detail {
+    padding: 0 0 1px 0;
+}
+
+.product-hero {
+    height: 70vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-bottom: 4px solid var(--secundario);
+}
+
+.product-hero-content {
+    text-align: center;
+}
+
+.title-box {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 30px 60px;
+    border: 1px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(5px);
+}
+
+.title-box h1 {
+    font-size: 3.5rem;
+    color: #fff;
+    margin: 0;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+.title-box .subtitle {
+    color: #ddd;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+.btn-back {
+    display: inline-block;
+    margin-top: 20px;
+    background: #333;
+    color: #fff;
+    padding: 8px 20px;
+    text-decoration: none;
+    font-size: 0.8rem;
+    text-transform: lowercase;
+    transition: var(--transicion);
+}
+
+.btn-back:hover {
+    background: var(--secundario);
+}
+
+.product-info-dark {
+    background-color: #0a0a0a;
+    color: #999;
+    padding: 80px 0;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 80px;
+    align-items: start;
+}
+
+/* --- Título Nombre de la Piedra (Encima de la descripción) --- */
+.stone-name-title {
+    color: #fff;
+    font-size: 2.2rem;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+.stone-name-title::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: var(--secundario);
+    margin: 10px 0; /* Línea a la izquierda */
+}
+
+.info-description p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.info-description a {
+    color: var(--secundario);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+}
+
+.info-description a:hover {
+    border-bottom: 1px solid var(--secundario);
+}
+
+/* Estilo para la imagen de texturas recuadrada */
+.img-acabados-muestras {
+    display: block;
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    margin: 15px 0;
+}
+
+.spec-group {
+    margin-bottom: 45px;
+}
+
+.spec-group h3 {
+    color: var(--secundario);
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.spec-group p {
+    font-size: 0.95rem;
+    color: #ccc;
+}
+
+/* --- Apartado Selección de Colores --- */
+.color-selection {
+    display: flex;
+    gap: 25px;
+    margin-top: 15px;
+}
+
+.color-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.color-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #333;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
+}
+
+.color-circle:hover {
+    transform: scale(1.15);
+    border-color: var(--secundario);
+}
+
+.color-item p {
+    font-size: 0.75rem !important;
+    color: #777 !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* 7. SECCIÓN ACABADOS VISUALES (DINÁMICA) */
+.acabados-visual {
+    background-color: #0a0a0a;
+    padding: 60px 0 0 0;
+    overflow: hidden; 
+    position: relative;
+    width: 100%;
+}
+
+.section-title-small {
+    font-size: 2.4rem;
+    color: var(--blanco);
+    text-align: center;
+    margin-bottom: 6rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.acabados-gallery-full {
+    display: flex;
+    width: 100%;
+    height: 350px;
+    gap: 0;
+    position: relative;
+    margin: 0; 
+}
+
+.acabado-item {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 1;
+}
+
+.acabado-label {
+    position: absolute;
+    top: -45px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1rem;
+    z-index: 10;
+    transition: color 0.3s ease;
+}
+
+.acabado-label::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: var(--secundario);
+    margin: 4px auto 0;
+}
+
+.acabado-img {
+    flex-grow: 1;
+    background-size: cover;
+    background-position: center;
+    clip-path: polygon(150px 0%, 100% 0%, calc(100% - 150px) 100%, 0% 100%);
+    width: calc(100% + 300px);
+    margin-left: -150px;
+    filter: brightness(0.6);
+    transition: all 0.5s ease;
+}
+
+.item-1 .acabado-img {
+    clip-path: polygon(0% 0%, 100% 0%, calc(100% - 150px) 100%, 0% 100%);
+    width: calc(100% + 150px);
+    margin-left: 0;
+}
+
+.item-4 .acabado-img {
+    clip-path: polygon(150px 0%, 100% 0%, 100% 100%, 0% 100%);
+    width: calc(100% + 150px);
+    margin-left: -150px;
+}
+
+.acabado-item:hover {
+    flex: 2;
+    z-index: 5;
+}
+
+.acabado-item:hover .acabado-img {
+    filter: brightness(1);
+    transform: scale(1.05);
+}
+
+.acabado-item:hover .acabado-label {
+    color: var(--secundario);
+}
+
+/* 8. FOOTER */
+.main-footer {
+    background: #222;
+    color: #bbb;
+    padding: 60px 0 20px;
+}
+
+.footer-nav {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.footer-nav a {
+    color: #fff;
+    margin: 0 15px;
+    text-decoration: none;
+}
+
+.copy {
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 20px;
+}
+
+/* 9. RESPONSIVE */
+@media (max-width: 768px) {
+    .main-nav { display: none; }
+    .hero-content h1 { font-size: 2rem; }
+    .card__item { height: 15vh; }
+    .high__hov { font-size: 1.4rem; letter-spacing: 2px; }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .acabados-gallery-full {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .acabado-img {
+        height: 250px;
+        clip-path: none !important;
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
+    
+    .acabado-label {
+        position: relative;
+        top: 0;
+        margin-bottom: 10px;
+    }
+}

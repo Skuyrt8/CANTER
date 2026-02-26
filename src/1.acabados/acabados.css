@@ -250,14 +250,22 @@ h2::after {
 }
 
 /* Imágenes de Fondo */
-.stone-alcaniz { background-image: url('../img/alcañiz.jpg'); }
+.stone-alcaniz { background-image: url('../img/Arenisca.jpg'); }
 .stone-floresta { background-image: url('../img/Floresta.jpg'); }
 .stone-osona { background-image: url('../img/Osona.jpg'); }
+.stone-elcucu { background-image: url('../img/alcañiz.jpg'); }
 .stone-niza { background-image: url('../img/NIZA.jpg'); }
 .stone-egypsy { background-image: url('../img/Arenisca2.jpg'); }
 .stone-zarzi { background-image: url('../img/ZARZI.jpg'); }
 .stone-deva { background-image: url('../img/DEVA.jpg'); }
 .stone-griote { background-image: url('../img/GRIOTE.jpg'); }
+.stone-multibrown { background-image: url('../img/multibrown.png'); }
+.stone-grisazulado { background-image: url('../img/grisazulado.png'); }
+.stone-madera { background-image: url('../img/madera.png'); }
+.stone-gasoil { background-image: url('../img/gasoil.png'); }
+.stone-negro { background-image: url('../img/negro.png'); }
+.stone-grismulti { background-image: url('../img/grismulti.png'); }
+
 
 /* 6. FOOTER */
 .main-footer {

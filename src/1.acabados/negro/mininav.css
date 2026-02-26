@@ -1,0 +1,87 @@
+:root {
+    --primario: #222222; /* Gris piedra */
+    --secundario: #bd7b31; /* Tono arena/tierra */
+    --fondo-claro: #f9f9f9;
+    --blanco: #ffffff;
+    --texto: #333333;
+    --transicion: all 0.3s ease;
+}
+
+/* Barra Lateral Social */
+.social-sticky {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+}
+
+.social-sticky .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.85); 
+    color: var(--blanco);
+    text-decoration: none;
+    margin-bottom: 2px;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+    border-left: 3px solid transparent;
+}
+
+/* Estado del icono (Logo) */
+.social-sticky .icon i {
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    opacity: 1;
+    z-index: 2;
+}
+
+/* Texto oculto (Label) */
+.social-sticky .label {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(20px, -50%); /* Empieza ligeramente desplazado a la derecha */
+    opacity: 0;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+/* --- EFECTO HOVER --- */
+
+.social-sticky .icon:hover {
+    width: 160px; 
+    background: var(--secundario); 
+    border-left: 3px solid var(--blanco);
+    margin-left: -110px; 
+}
+
+/* El logo desaparece y se encoge */
+.social-sticky .icon:hover i {
+    opacity: 0;
+    transform: scale(0.2) rotate(90deg);
+}
+
+/* El texto aparece y se centra */
+.social-sticky .icon:hover .label {
+    opacity: 1;
+    transform: translate(-50%, -50%); /* Centrado perfecto en el botón expandido */
+}
+
+/* Ocultar en móviles muy pequeños */
+@media (max-width: 480px) {
+    .social-sticky {
+        display: none;
+    }
+}

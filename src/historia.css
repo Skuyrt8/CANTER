@@ -1,0 +1,111 @@
+/* 1. RESET Y ESTILOS BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primario: #222222; /* Gris piedra */
+    --secundario: #bd7b31; /* Tono arena/tierra */
+    --fondo-claro: #f9f9f9;
+    --blanco: #ffffff;
+    --texto: #333333;
+    --transicion: all 0.3s ease;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--texto);
+    background-color: var(--blanco);
+}
+
+.history-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.history {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+}
+
+.history-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.history-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.history-text h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.subtitle {
+    color: #8b5a2b; /* Un tono tierra/piedra */
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.timeline-item {
+    margin-top: 25px;
+    border-left: 3px solid #8b5a2b;
+    padding-left: 20px;
+}
+
+.timeline-item h4 {
+    margin-bottom: 5px;
+    color: #444;
+}
+
+.founder-quote {
+    margin-top: 30px;
+    font-style: italic;
+    color: #666;
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+}
+
+.history-image {
+    flex: 1;
+    min-width: 300px;
+    position: relative;
+}
+
+.history-image img {
+    width: 80%;
+    border-radius: 8px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.badge-years {
+    position: absolute;
+    bottom: -20px;
+    right: 20px;
+    background: #8b5a2b;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .history-content {
+        flex-direction: column;
+    }
+}
