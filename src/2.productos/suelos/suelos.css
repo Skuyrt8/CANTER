@@ -1,0 +1,511 @@
+/* 1. RESET Y ESTILOS BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primario: #222222; /* Gris piedra */
+    --secundario: #bd7b31; /* Tono arena/tierra */
+    --fondo-claro: #f9f9f9;
+    --blanco: #ffffff;
+    --texto: #333333;
+    --transicion: all 0.3s ease;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--texto);
+    background-color: var(--blanco);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative; /* Necesario para el mega menú */
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* 2. HEADER Y NAVEGACIÓN */
+.main-header {
+    background: transparent;
+    padding: 30px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    min-height: 100px;
+    background-color: rgba(0,0,0,0.8);
+    transition: all 0.4s ease;
+}
+
+.main-header.scrolled {
+    background: rgba(2, 2, 2, 0.7);
+    padding: 20px 0;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 60px;
+    transition: var(--transicion);
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+}
+
+.main-nav ul li a {
+    text-decoration: none;
+    color: var(--blanco);
+    font-weight: 600;
+    margin-left: 30px;
+    transition: var(--transicion);
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+.main-nav ul li a:hover {
+    color: var(--secundario);
+}
+
+/* --- LÓGICA DE MEGA MENÚ (ESTILO ARIVAL) --- */
+
+/* Permitir que el submenú se abra en todo el ancho del container */
+.main-nav ul li.has-submenu {
+    position: static; 
+}
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(10, 10, 10, 0.98);
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    list-style: none;
+    border-bottom: 3px solid var(--secundario);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    transform: translateY(10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.main-nav ul li:hover > .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Columnas del Mega Menú */
+.submenu > li.has-inner-submenu {
+    flex: 1;
+    max-width: 250px;
+    padding: 0 20px;
+    border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+.submenu > li.has-inner-submenu:last-child {
+    border-right: none;
+}
+
+/* Títulos de categorías (Areniscas, Calizas...) */
+.submenu > li.has-inner-submenu > a {
+    color: var(--secundario) !important;
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 15px !important;
+    margin-left: 0 !important;
+    padding: 0 !important;
+    display: block;
+    pointer-events: none;
+}
+
+/* Lista de productos dentro de la columna */
+.inner-submenu {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: static !important;
+    background: transparent !important;
+    padding: 0 !important;
+    list-style: none;
+    transform: none !important;
+    border: none !important;
+}
+
+.inner-submenu li a {
+    margin-left: 0 !important;
+    padding: 8px 0 !important;
+    font-size: 0.9rem !important;
+    color: #bbb !important;
+    text-transform: none !important;
+    font-weight: 400 !important;
+}
+
+.inner-submenu li a:hover {
+    color: var(--blanco) !important;
+    background: transparent !important;
+    text-decoration: underline;
+}
+
+/* 3. BANNER  ---  HERO Y SECCIONES */ 
+.hero {
+    height: 85vh; 
+    min-height: 500px;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)), url('img/banner2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 12px 30px;
+    background: var(--secundario);
+    color: var(--blanco);
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: var(--transicion);
+}
+
+.btn-primary:hover { background: var(--primario); }
+
+section { padding: 60px 0; }
+
+h2 {
+    font-size: 2.6rem;
+    text-align: center;
+    margin-bottom: 80px;
+    color: var(--blanco);
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--secundario);
+    margin: 10px auto;
+}
+
+.solutions {
+    font-size: 1.2rem;
+    padding: 60px 0 0 0;
+    background-color: #222;
+    color: whitesmoke;
+}
+
+/* 4. VALORES Y SERVICIOS */
+.values { background-color: var(--primario); color: var(--blanco); }
+.values h2 { color: var(--secundario); margin-bottom: 40px; }
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+.value-card {
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 30px;
+    text-align: center;
+}
+.value-card h4 { color: var(--secundario); margin-bottom: 15px; font-size: 1.6rem; }
+
+/* 5. MAPA */
+#map iframe {
+    width: 100%;
+    height: 880px;
+    display: block;
+    filter: grayscale(100%) invert(90%) contrast(100%);
+    transition: filter 0.5s ease;
+    padding: 0;
+}
+#map iframe:hover { filter: grayscale(0%); }
+
+/* 6. GALERÍA DE CANTERAS */
+.grid__gallery { padding: 40px 0; background-color: var(--primario); }
+.row { display: flex; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; padding: 0 10px; }
+.column { flex: 25%; padding: 0 5px; }
+.column img {
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+}
+.column img:hover { transform: scale(1.02); }
+
+
+.location {
+    padding: 0;
+    margin: 0;
+}
+
+#map {
+    margin: 0;
+}
+
+/* 7. FOOTER */
+.main-footer { background: #222; color: #bbb; padding: 60px 0 20px; }
+.footer-nav { margin: 20px 0; text-align: center; }
+.footer-nav a { color: #fff; margin: 0 15px; text-decoration: none; }
+.legal {
+    text-align: center;
+    font-size: 0.8rem;
+    margin-top: 40px;
+    border-top: 1px solid #333;
+    padding-top: 20px;
+}
+
+/* 8. RESPONSIVE */
+@media (max-width: 800px) {
+    .main-nav { display: none; }
+    .column { flex: 50%; }
+}
+@media (max-width: 600px) {
+    .column { flex: 100%; }
+}
+
+
+
+
+
+
+
+/* SECCIÓN PRODUCTOS MODERNOS */
+.products-modern {
+    background-color: #1a1a1a; /* Fondo oscuro para dar continuidad */
+    padding: 100px 0;
+}
+
+.products-modern .section-title {
+    margin-bottom: 60px;
+    color: var(--blanco);
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: var(--transicion);
+}
+
+.product-img-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 1;
+}
+
+.product-overlay {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 10%, rgba(0,0,0,0.2) 60%, transparent 100%);
+    display: flex;
+    align-items: flex-end;
+    padding: 40px;
+    transition: var(--transicion);
+}
+
+.product-content {
+    transform: translateY(20px);
+    transition: var(--transicion);
+}
+
+.product-content h3 {
+    color: var(--secundario);
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.product-content p {
+    color: #ccc;
+    font-size: 1rem;
+    line-height: 1.4;
+    max-width: 400px;
+    opacity: 0;
+    transition: var(--transicion);
+}
+
+.product-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--blanco);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--secundario);
+}
+
+/* EFECTOS HOVER */
+.product-card:hover .product-img-container {
+    transform: scale(1.1);
+}
+
+.product-card:hover .product-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.95) 30%, rgba(0,0,0,0.4) 100%);
+}
+
+.product-card:hover .product-content {
+    transform: translateY(0);
+}
+
+.product-card:hover .product-content p {
+    opacity: 1;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+    .product-card {
+        height: 350px;
+    }
+    .product-content p {
+        opacity: 1;
+    }
+}
+
+
+
+
+
+/* SECCIÓN MAPA + FORMULARIO */
+.contact-map-section {
+    padding: 0;
+    background-color: #1a1a1a;
+}
+
+.contact-flex {
+    display: flex;
+    min-height: 500px;
+}
+
+/* MAPA */
+.map-container {
+    width: 50%;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+    border: 0;
+}
+
+/* FORMULARIO */
+.form-container {
+    width: 50%;
+    padding: 80px;
+    background-color: #222;
+    color: white;
+}
+
+.form-container h2 {
+    text-align: left;
+    margin-bottom: 40px;
+}
+
+/* CAMPOS */
+.main-form .form-group {
+    margin-bottom: 20px;
+}
+
+.main-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+.main-form input,
+.main-form select,
+.main-form textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: #111;
+    border: 1px solid #333;
+    color: white;
+    font-size: 0.9rem;
+}
+
+.main-form input:focus,
+.main-form select:focus,
+.main-form textarea:focus {
+    outline: none;
+    border-color: var(--secundario);
+}
+
+@media (max-width: 900px) {
+    .contact-flex {
+        flex-direction: column;
+    }
+
+    .map-container,
+    .form-container {
+        width: 100%;
+    }
+
+    .form-container {
+        padding: 40px 20px;
+    }
+}
+
+
+

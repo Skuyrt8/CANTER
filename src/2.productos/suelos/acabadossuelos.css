@@ -1,0 +1,169 @@
+/* ==========================================================================
+   SECCIÓN ACABADOS (PÁGINA INDIVIDUAL)
+   ========================================================================== */
+
+.acabados-page {
+    background-color: #111;
+    padding: 140px 0 80px; /* Espacio para el header fijo */
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.page-header .section-title {
+    color: var(--blanco);
+    font-size: 2.6rem;
+    margin-bottom: 15px;
+}
+
+.page-header p {
+    color: #888;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* --- GRID DE ACABADOS --- */
+.acabados-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+/* --- TARJETA (Ahora es un <a>) --- */
+.acabado-card {
+    display: block; /* Ocupa todo el espacio */
+    position: relative;
+    height: 400px;
+    background-color: #222;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: var(--transicion);
+    text-decoration: none; /* Quita subrayados de enlaces */
+}
+
+.acabado-card:hover {
+    border-color: var(--secundario);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+}
+
+/* --- CONTENEDOR DE IMAGEN (Con el zoom) --- */
+.acabado-img-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 1;
+}
+
+.acabado-card:hover .acabado-img-container {
+    transform: scale(1.1);
+}
+
+/* --- ETIQUETA DE CATEGORÍA (Badge) --- */
+.acabado-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: var(--secundario);
+    color: white;
+    padding: 5px 12px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    z-index: 3;
+    letter-spacing: 1px;
+}
+
+/* --- OVERLAY Y TEXTOS --- */
+.acabado-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, 
+                rgba(0,0,0,0.95) 10%, 
+                rgba(0,0,0,0.4) 50%, 
+                transparent 100%);
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+    padding: 30px;
+    transition: var(--transicion);
+}
+
+.acabado-card:hover .acabado-overlay {
+    background: linear-gradient(to top, 
+                rgba(0,0,0,0.98) 20%, 
+                rgba(0,0,0,0.6) 100%);
+}
+
+.acabado-content h3 {
+    color: var(--blanco);
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transicion);
+}
+
+.acabado-card:hover h3 {
+    color: var(--secundario);
+}
+
+.stone-desc {
+    color: #ccc;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    line-height: 1.4;
+    max-width: 90%;
+}
+
+/* --- ETIQUETAS DE ACABADOS (Serrado, Pulido...) --- */
+.acabados-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.acabados-tags span {
+    border: 1px solid rgba(189, 123, 49, 0.5);
+    color: var(--secundario);
+    padding: 2px 8px;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    background: rgba(0,0,0,0.3);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .acabados-grid {
+        grid-template-columns: 1fr;
+    }
+    .acabado-card {
+        height: 350px;
+    }
+}
+
+/* Mapeo de Imágenes (Rutas proporcionadas) */
+.stone-alcaniz .acabado-img-container { background-image: url('../../img/Arenisca.jpg'); }
+.stone-floresta .acabado-img-container { background-image: url('../../img/Floresta.jpg'); }
+.stone-osona .acabado-img-container { background-image: url('../../img/Osona.jpg'); }
+.stone-elcucu .acabado-img-container { background-image: url('../../img/alcañiz.jpg'); }
+.stone-niza .acabado-img-container { background-image: url('../../img/NIZA.jpg'); }
+.stone-egypsy .acabado-img-container { background-image: url('../../img/Arenisca2.jpg'); }
+.stone-zarzi .acabado-img-container { background-image: url('../../img/ZARZI.jpg'); }
+.stone-deva .acabado-img-container { background-image: url('../../img/DEVA.jpg'); }
+.stone-griote .acabado-img-container { background-image: url('../../img/GRIOTE.jpg'); }
+.stone-marquina .acabado-img-container { background-image: url('../../img/GRIOTE.jpg'); } /* Usando la misma que griote según tu lista */
+.stone-multibrown .acabado-img-container { background-image: url('../../img/multibrown.png'); }
+.stone-grisazulado .acabado-img-container { background-image: url('../../img/grisazulado.png'); }
+.stone-madera .acabado-img-container { background-image: url('../../img/madera.png'); }
+.stone-gasoil .acabado-img-container { background-image: url('../../img/gasoil.png'); }
+.stone-negro .acabado-img-container { background-image: url('../../img/negro.png'); }
+.stone-grismulti .acabado-img-container { background-image: url('../../img/grismulti.png'); }
